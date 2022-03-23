@@ -22,7 +22,7 @@ class Posts:
         insta_posts = self.get_posts_all()
         for post in insta_posts:
             if post['pk'] == post_id:
-                return post['content']
+                return post['comment']
 
     def search_for_posts(self, query):
         insta_posts = self.get_posts_all()
