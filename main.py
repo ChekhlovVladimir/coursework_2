@@ -12,9 +12,9 @@ def page_index():
 
 @app.route('/search')
 def search_page(s):
-    return render_template('search.html')
+   # return render_template('search.html')
+    pass
 
-pp(search_page("пирог"))
 
 if __name__ == "__main__":
     app.run()
