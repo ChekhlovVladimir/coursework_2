@@ -20,9 +20,11 @@ class Posts:
 
     def get_comments_by_post_id(self, post_id):
         insta_posts = self.get_posts_all()
+        comments_list = []
         for post in insta_posts:
-            if post['pk'] == post_id:
-                return post['comment']
+            if post_id == post['post_id']:
+                comments_list.append(post['comment'])
+        return comments_list
 
     def search_for_posts(self, query):
         insta_posts = self.get_posts_all()

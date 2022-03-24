@@ -25,8 +25,16 @@ def get_post_by_post_id(post_id):
                            comments=comments, count_comment=count_comment)
 
 
-@blueprint_web.route('/search/<user_id>')
-def get_comments_by_user_id():
-    # post_id = request.args.get('post_id')
-    # content = get_comments_by_post_id(post_id)
-    return render_template('user-feed.html')
+@blueprint_web.route('/search')
+def search_for_posts():
+    s_query = request.args.get('query')
+    posts = []
+    if s_query:
+        post_data = Posts(DATA_PATH)
+        posts = post_data.search_for_posts(s_query)
+
+    return render_template('search.html', posts=posts)
+
+
+post_data = Posts(DATA_PATH)
+pp(post_data.search_for_posts("свалка"))

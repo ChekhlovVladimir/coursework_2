@@ -25,19 +25,19 @@
   </header>
   <main class="container">
     <div class="search">
-      <form action="/" class="search__form">
+      <form action="/search" class="search__form">
         <input type="search" class="search__input">
       </form>
-      <p class="search__results">Найдено постов: 11</p>
+      <p class="search__results">Найдено постов: {{count_posts}}</p>
     </div>
     <section class="items">
       <div class="items__item item">
         <div class="item__top">
           <a href="/templates/user-feed.html" class="item__head">
             <div class="item__ava-wrap">
-              <img src="../static/images/ava1.png" alt="" class="item__ava" width="47">
+              <img src="{{content.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
-            <span class="item__username">skypro.08</span>
+            <span class="item__username">{{ content.poster_name }}</span>
           </a>
         </div>
         <a href="/templates/post.html" class="item__post-link">
@@ -48,58 +48,6 @@
           <div class="item__counter">
             <img src="../static/images/eye.png" alt="" class="item__counter-icon" width="26">
             <span class="item__counter-text">212</span>
-          </div>
-        </div>
-        <div class="item__post-bottom">
-          <a href="/templates/post.html" class="item__btn-more">Подробнее</a>
-          <button type="button" class="item__bookmark-btn">
-            <img src="../static/images/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-          </button>
-        </div>
-      </div>
-      <div class="items__item item">
-        <div class="item__top">
-          <a href="/templates/user-feed.html" class="item__head">
-            <div class="item__ava-wrap">
-              <img src="../static/images/ava2.png" alt="" class="item__ava" width="47">
-            </div>
-            <span class="item__username">Username</span>
-          </a>
-        </div>
-        <a href="/templates/post.html" class="item__post-link">
-          <img src="../static/images/post6.jpg" alt="" width="348" class="item__post-img">
-        </a>
-        <p class="item__descr"><a href="/templates/tag.html" class="item__tag">#food</a> Текст описания коротки...</p>
-        <div class="item__post-info">
-          <div class="item__counter">
-            <img src="../static/images/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">1023</span>
-          </div>
-        </div>
-        <div class="item__post-bottom">
-          <a href="/templates/post.html" class="item__btn-more">Подробнее</a>
-          <button type="button" class="item__bookmark-btn active">
-            <img src="../static/images/bookmark.png" alt="" class="item__bookmark-icon" width="24">
-          </button>
-        </div>
-      </div>
-      <div class="items__item item">
-        <div class="item__top">
-          <a href="/templates/user-feed.html" class="item__head">
-            <div class="item__ava-wrap">
-              <img src="../static/images/ava2.png" alt="" class="item__ava" width="47">
-            </div>
-            <span class="item__username">Username</span>
-          </a>
-        </div>
-        <a href="/templates/post.html" class="item__post-link">
-          <img src="../static/images/post7.jpg" alt="" width="348" class="item__post-img">
-        </a>
-        <p class="item__descr"><a href="/templates/tag.html" class="item__tag">#food</a> Текст описания коротки...</p>
-        <div class="item__post-info">
-          <div class="item__counter">
-            <img src="../static/images/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">1023</span>
           </div>
         </div>
         <div class="item__post-bottom">
