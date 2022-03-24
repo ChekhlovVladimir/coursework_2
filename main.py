@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from web.bp_views import blueprint_web
-from  pprint import pprint as pp
+from pprint import pprint as pp
+
 app = Flask(__name__)
 app.register_blueprint(blueprint_web)
 
@@ -12,7 +13,7 @@ def page_index():
 
 @app.route('/search')
 def search_page(s):
-   # return render_template('search.html')
+    # return render_template('search.html')
     pass
 
 
