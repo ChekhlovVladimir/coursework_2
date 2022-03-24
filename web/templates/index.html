@@ -26,6 +26,11 @@
 
   <main class="container">
     <section class="items">
+      <a href="/search" class="item__find-link">
+        <img src="{{url_for('.static', filename='images/search_sm.png') }}" alt="Поиск" width="56" class="item__post-img">
+        <br>
+        <p class="par_find-link"> Поиск по слову</p>
+      </a>
       {% for post in posts %}
       <div class="items__item item">
         <div class="item__top">

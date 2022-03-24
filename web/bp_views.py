@@ -36,5 +36,4 @@ def search_for_posts():
     return render_template('search.html', posts=posts)
 
 
-post_data = Posts(DATA_PATH)
-pp(post_data.search_for_posts("свалка"))
+
