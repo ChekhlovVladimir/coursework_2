@@ -26,15 +26,17 @@ def get_post_by_post_id(post_id):
 
 
 @blueprint_web.route('/search')
-def search_for_posts(query):
-    s_query = request.args.get('query')
-    contents = []
+def search_for_posts():
+    s = request.args.get('s', '')
     post_data = Posts(DATA_PATH)
-    contents = post_data.search_for_posts(s_query)
+    contents = post_data.search_for_posts(s)
+    count_search_post = len(contents)
+    return render_template('search.html', contents=contents, s=s, count_search_post=count_search_post)
 
-    return render_template('search.html', contents=contents)
 
-
-@blueprint_web.route('/user/<username>')
-def search_for_users(username):
-    pass
+@blueprint_web.route('/users/<username>')
+def search_for_users_posts(username):
+    s = request.args.get('s')
+    post_data = Posts(DATA_PATH)
+    posts = post_data.get_posts_by_user(username)
+    return render_template('user-feed.html', username=username, posts=posts, s=s)
