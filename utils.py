@@ -9,17 +9,9 @@ class Posts:
         self.path = path
 
     def get_posts_all(self):
-        try:
-            with open(self.path, 'r', encoding='utf-8') as my_file:
-                insta_posts = json.load(my_file)
-        except FileNotFoundError:
-            logging.exception("Файл не найден.")
-            return "Файл для загрузки  не найден!"
-        except JSONDecodeError:
-            logging.exception("Ошибка декодирования JSON")
-            return "Декодирование не произошло!"
-        else:
-            return insta_posts
+        with open(self.path, 'r', encoding='utf-8') as my_file:
+            insta_posts = json.load(my_file)
+        return insta_posts
 
     def get_posts_by_user(self, user_name):
         posts_list = []

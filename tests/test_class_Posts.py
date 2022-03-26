@@ -1,14 +1,17 @@
-from utils import Posts
 import pytest
 from main import app
+from utils import Posts
+
+DATA_PATH = 'data/data.json'
+
 
 class TestPosts:
     def test_get_posts_all(self):
-        path = 'data/data.json'
-        posts = Posts(path)
-        assert posts.get_posts_all() == 'data/data.json', 'Ошибка в пути файла'
+        response = app.test_client().get('/api/posts')
+        assert response.status_code == 200
 
     def test_get_posts_by_user(self):
         user_name = 'user_name'
         posts = Posts(user_name)
-        assert posts.get_posts_by_user(user_name) == 'user_name', 'Ошибка в имени'
+        response = app.test_client().get('/username')
+        assert response.json.get(user_name) == 'user_name', 'Ошибка в имени'

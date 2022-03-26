@@ -20,7 +20,7 @@ def index_api_posts():
 def one_api_post(post_id):
     post_data = Posts(DATA_PATH)
     post = post_data.get_post_by_pk(int(post_id))
-    if post_id.isdigit():
-        return jsonify(post)
-    logging.info(f'Неверный номер поста')
-    return abort(404)
+    return jsonify(post)
+
+
+
