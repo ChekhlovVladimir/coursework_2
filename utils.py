@@ -1,5 +1,7 @@
 import json
 from pprint import pprint as pp
+import logging
+from json import JSONDecodeError
 
 
 class Posts:
@@ -7,16 +9,25 @@ class Posts:
         self.path = path
 
     def get_posts_all(self):
-        with open(self.path, 'r', encoding='utf-8') as my_file:
-            insta_posts = json.load(my_file)
+        try:
+            with open(self.path, 'r', encoding='utf-8') as my_file:
+                insta_posts = json.load(my_file)
+        except FileNotFoundError:
+            logging.exception("Файл не найден.")
+            return "Файл для загрузки  не найден!"
+        except JSONDecodeError:
+            logging.exception("Ошибка декодирования JSON")
+            return "Декодирование не произошло!"
+        else:
             return insta_posts
 
     def get_posts_by_user(self, user_name):
-
+        posts_list = []
         insta_posts = self.get_posts_all()
         for post in insta_posts:
             if user_name.lower() in post['poster_name'].lower():
-                return post
+                posts_list.append(post)
+        return posts_list
 
     def get_comments_by_post_id(self, post_id):
         insta_posts = self.get_posts_all()
@@ -40,7 +51,3 @@ class Posts:
         for post in insta_posts:
             if pk == post['pk']:
                 return post
-
-
-
-

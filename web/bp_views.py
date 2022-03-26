@@ -8,13 +8,13 @@ DATA_PATH = "data/data.json"
 COMMENT_PATH = "data/comments.json"
 
 
-@blueprint_web.route('/')
+@blueprint_web.route('/', methods=['GET'])
 def index():
     post_data = Posts(DATA_PATH)
     return render_template('index.html', posts=post_data.get_posts_all())
 
 
-@blueprint_web.route('/post/<int:post_id>')
+@blueprint_web.route('/post/<int:post_id>', methods=['GET'])
 def get_post_by_post_id(post_id):
     post_data = Posts(DATA_PATH)
     content = post_data.get_post_by_pk(post_id)
@@ -36,7 +36,6 @@ def search_for_posts():
 
 @blueprint_web.route('/users/<username>')
 def search_for_users_posts(username):
-    s = request.args.get('s')
     post_data = Posts(DATA_PATH)
     posts = post_data.get_posts_by_user(username)
-    return render_template('user-feed.html', username=username, posts=posts, s=s)
+    return render_template('user-feed.html', username=username, posts=posts)

@@ -1,6 +1,6 @@
 from utils import Posts
 import pytest
-
+from main import app
 
 class TestPosts:
     def test_get_posts_all(self):
