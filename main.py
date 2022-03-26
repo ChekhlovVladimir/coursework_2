@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask
 from web.bp_views import blueprint_web
 from api.bp_views import blueprint_api
-from pprint import pprint as pp
+
 
 app = Flask(__name__)
 app.register_blueprint(blueprint_web)
