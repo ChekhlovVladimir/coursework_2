@@ -9,9 +9,10 @@ app.register_blueprint(blueprint_api)
 app.config['JSON_AS_ASCII'] = False
 
 
-@app.route("/")
-def page_index():
-    pass
+@app.route('/api/posts')
+def get_posts_all():
+    return "it works"
+
 
 
 @app.route('/search')
